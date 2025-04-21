@@ -7,6 +7,7 @@ import Home from './home'
 import Booking from './booking'
 import AdminRegister from './Register'
 import Dashboard from './Dashboard'
+import Rooms from './Rooms'
 import './admin.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/register" element={<AdminRegister />} />  {/* Admin Register */}
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/rooms" element={<Rooms/>}/>
         </Routes>
       </div>
     </Router>

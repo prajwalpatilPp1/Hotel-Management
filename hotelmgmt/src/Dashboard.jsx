@@ -14,8 +14,13 @@ function Dashboard() {
       <h1>Welcome, Admin!</h1>
 
       <div style={{ marginTop: '20px' }}>
-        <button onClick={() => navigate('/bookings')}>View Bookings</button>
+        <button onClick={() => navigate('/booking')}>View Bookings</button>
         <button onClick={() => navigate('/rooms')}>Manage Rooms</button>
+        <button onClick={() => navigate('/payments')}>Payments</button>
+        <button onClick={() => navigate('/inventory')}>Inventory</button>
+        <button onClick={() => navigate('/Maintenence')}>Maintenence</button>
+        
+
         <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
