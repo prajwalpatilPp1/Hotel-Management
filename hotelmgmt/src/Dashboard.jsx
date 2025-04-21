@@ -1,0 +1,25 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function Dashboard() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Clear session/token if you use it
+    navigate('/login');
+  };
+
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>Welcome, Admin!</h1>
+
+      <div style={{ marginTop: '20px' }}>
+        <button onClick={() => navigate('/bookings')}>View Bookings</button>
+        <button onClick={() => navigate('/rooms')}>Manage Rooms</button>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;

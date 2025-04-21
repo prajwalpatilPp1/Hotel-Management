@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
+  // Create a navigate function
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Admin Login Details:', { email, password });
-    alert('Admin Login clicked! (Check console)');
+    
+    // Redirect to the dashboard after a successful login
+    alert('Admin Login successful! (Check console)');
+    navigate('/dashboard');  // Redirect to /dashboard
   };
 
   return (
@@ -23,6 +30,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             required
             style={{ width: '100%', padding: '8px' }}
+            placeholder="Enter your email"
           />
         </div>
 
@@ -34,10 +42,13 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
             style={{ width: '100%', padding: '8px' }}
+            placeholder="Enter your password"
           />
         </div>
 
-        <button type="submit" style={{ padding: '10px 20px' }}>Login</button>
+        <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: 'white', border: 'none', cursor: 'pointer' }}>
+          Login
+        </button>
       </form>
     </div>
   );
