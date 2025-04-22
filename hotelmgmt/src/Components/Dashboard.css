@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    bottom: 10px;
 }
 
 .dashboard-container {
@@ -11,5 +12,6 @@
     justify-content: left;
     margin-top: 20px;
     width: 100px;
+    height: 100vh;
 }
 
