@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import './App.css'
-import Login from './login'
-import Home from './home'
-import Booking from './booking'
-import AdminRegister from './Register'
-import Dashboard from './Dashboard'
-import Rooms from './Rooms'
-import './admin.css'
+import './App.jsx'
+import Login from './Components/Login'
+import Home from './Components/Home'
+import Booking from './Components/Booking'
+import AdminRegister from './Components/Register'
+import Dashboard from './Components/Dashboard'
+import Rooms from './Components/Rooms'
+import './Components/admin.css'
+import Inventory from './Components/Inventory'
+import Payments from './Components/Payments'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,7 +25,12 @@ function App() {
           <Route path="/register" element={<AdminRegister />} />  {/* Admin Register */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/rooms" element={<Rooms/>}/>
+          <Route path="/inventory" element={<Inventory/>}/>
+          <Route path='/payments'  element={<Payments/>}/>
+
+
         </Routes>
+        
       </div>
     </Router>
   )

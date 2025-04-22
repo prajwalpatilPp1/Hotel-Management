@@ -36,6 +36,7 @@ function AdminRegister() {
         setEmail('');
         setPassword('');
       } else {
+        // Provide better error feedback
         setErrorMessage(data.message || 'Registration failed. Please try again.');
       }
     } catch (error) {
@@ -50,6 +51,7 @@ function AdminRegister() {
     <div style={{ maxWidth: '400px', margin: 'auto', paddingTop: '50px' }}>
       <h2>Admin Register</h2>
 
+      {/* Display success or error message */}
       {successMessage && (
         <div style={{ color: 'green', marginBottom: '10px' }}>{successMessage}</div>
       )}

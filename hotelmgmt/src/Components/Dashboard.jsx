@@ -15,7 +15,7 @@ function Dashboard() {
 
       <div style={{ marginTop: '20px' }}>
         <button onClick={() => navigate('/booking')}>View Bookings</button>
-        <button onClick={() => navigate('/rooms')}>Manage Rooms</button>
+        <button onClick={() => navigate('/rooms')}>Rooms</button>
         <button onClick={() => navigate('/payments')}>Payments</button>
         <button onClick={() => navigate('/inventory')}>Inventory</button>
         <button onClick={() => navigate('/Maintenence')}>Maintenence</button>
