@@ -1,28 +1,21 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  /* completely disable page scrolling */
-  overflow: auto;
-}
-
-
-/* Hamburger icon */
 .hamburger {
   position: fixed;
-  top: 10%;
+  top: 15% ;
   left: 10px;
   font-size: 2rem;
   cursor: pointer;
   z-index: 4;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
-/* Overlay (background dim layer) */
+.hamburger:active {
+  transform: scale(0.95);
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -35,38 +28,35 @@ body {
   transition: opacity 0.3s ease;
   z-index: 2;
 }
+
 .overlay.show {
   opacity: 1;
   visibility: visible;
 }
 
-/* Sidebar container */
 .dashboard-container {
   position: fixed;
   top: 0;
   left: 0;
-  margin-top: 160px;              /* push below header if needed */
-  width: 200px;
-  height: 93.5vh;                 /* adjust to fit below header */
+  width: 250px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 15px;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 20px;
+  padding: 220px 21px 50px 20px;
   background-color: #f0f0f0;
-
-  /* start off-screen */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, left 0.3s ease-in-out;
   z-index: 3;
 }
+
 .dashboard-container.open {
-  /* slide into view */
   transform: translateX(0);
 }
 
-/* Sidebar buttons */
 .dashboard-container button {
   width: 100%;
   padding: 10px;
@@ -78,6 +68,7 @@ body {
   cursor: pointer;
   transition: background 0.4s ease;
 }
+
 .dashboard-container button:hover {
   background-color: #0056b3;
 }

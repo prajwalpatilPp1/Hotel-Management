@@ -11,44 +11,32 @@ function Dashboard() {
   };
 
   const toggleMenu = () => {
-    // flip the boolean
     setMenuOpen(prev => {
-      const next = !prev
-      // when opening, hide scroll; when closing, restore it
-      document.body.style.overflow = next ? 'hidden' : 'auto'
-      return next
-    })
-  }
+      const next = !prev;
+      document.body.style.overflow = next ? 'hidden' : 'auto';
+      return next;
+    });
+  };
+
   return (
     <div className="dashboard-main">
       <h1 className='heading'>Welcome, Admin!</h1>
-    
 
       <div className="hamburger" onClick={toggleMenu}>
-        ☰
+        {menuOpen ? '✕' : '☰'}
       </div>
 
-      {menuOpen && (
-  <>
-   {/* hamburger stays the same */}
-<div className="hamburger" onClick={toggleMenu}>☰</div>
+      {/* Overlay and Menu */}
+      <div className={`overlay ${menuOpen ? 'show' : ''}`} onClick={toggleMenu}></div>
 
-{/* always rendered */}
-<div
-  className={`overlay ${menuOpen ? 'show' : ''}`}
-  onClick={toggleMenu}
-/>
-<div className={`dashboard-container ${menuOpen ? 'open' : ''}`}>
-  <button onClick={() => navigate('/booking')}>View Bookings</button>
-  <button onClick={() => navigate('/rooms')}>Rooms</button>
-  <button onClick={() => navigate('/payments')}>Payments</button>
-  <button onClick={() => navigate('/inventory')}>Inventory</button>
-  <button onClick={() => navigate('/Maintenence')}>Maintenence</button>
-  <button onClick={handleLogout}>Logout</button>
-</div>
-  </>
-)}
-
+      <div className={`dashboard-container ${menuOpen ? 'open' : ''}`}>
+        <button onClick={() => navigate('/booking')}>View Bookings</button>
+        <button onClick={() => navigate('/rooms')}>Rooms</button>
+        <button onClick={() => navigate('/payments')}>Payments</button>
+        <button onClick={() => navigate('/inventory')}>Inventory</button>
+        <button onClick={() => navigate('/Maintenence')}>Maintenence</button>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   );
 }
