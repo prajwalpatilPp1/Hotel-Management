@@ -8,7 +8,7 @@
 html,
 body {
   /* completely disable page scrolling */
-  overflow: hidden;
+  overflow: auto;
 }
 
 
