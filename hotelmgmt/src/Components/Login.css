@@ -9,6 +9,7 @@
 
 .heading{
     text-align: center;
+    color: #2E69B3;
 }
 
 #login-input{
@@ -17,6 +18,12 @@
     margin-bottom: 20px;
     width: 100%;
     padding: 8px;
+    
+
+}
+
+label{
+    color: #F16825;
 }
 
 .card{
@@ -41,13 +48,11 @@
   .card button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #007bff;
+    background-color: #0056b3;
     color: #fff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
   }
 
-  .card button:hover {
-    background-color: #0056b3;
-  }
+  

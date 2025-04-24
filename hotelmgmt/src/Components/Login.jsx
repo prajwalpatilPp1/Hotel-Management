@@ -22,7 +22,7 @@ function Login() {
       <div className="card">
       <h2 className='heading'>Admin Login</h2>
 
-<form onSubmit={handleSubmit}>
+<form  onSubmit={handleSubmit}>
   <div className='login-input'>
     <label>Email:</label><br />
     <input 
@@ -31,7 +31,6 @@ function Login() {
       value={email}
       onChange={(e) => setEmail(e.target.value)}
       required
-      style={{ width: '100%', padding: '8px' }}
       placeholder="Enter your email"
     />
   </div>
@@ -44,7 +43,6 @@ function Login() {
       value={password}
       onChange={(e) => setPassword(e.target.value)}
       required
-      
       placeholder="Enter your password"
     />
   </div>

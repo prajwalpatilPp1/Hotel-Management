@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../Components/Home.css'; // ✅ Import CSS file
 
 function Home() {
   const navigate = useNavigate();
@@ -13,19 +14,13 @@ function Home() {
   };
 
   return (
-    <div style={{ textAlign: 'center', paddingTop: '50px' }}>
+    <div className="home-container">
       <h1>Welcome to Our Hotel</h1>
-      <div style={{ marginTop: '20px' }}>
-        <button
-          onClick={handleAdminLogin}
-          style={{ padding: '10px 20px', margin: '10px' }}
-        >
+      <div className="home-buttons">
+        <button onClick={handleAdminLogin} className="home-button">
           Admin Login
         </button>
-        <button
-          onClick={handleAdminRegister}
-          style={{ padding: '10px 20px', margin: '10px' }}
-        >
+        <button onClick={handleAdminRegister} className="home-button">
           Admin Register
         </button>
       </div>

@@ -1,5 +1,15 @@
-html, body, #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+.header-text{
+
+  
+color: #2E69B3ff;
+padding: 1rem;
+}
+
+.main1{
+    color: #F16825 ;
+}
+
+.main2{
+    color: #2E69B3;
+}
+

@@ -1,0 +1,29 @@
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .orange-header {
+    background-color: #FF7F00;  /* Orange background */
+    height: 100px;  /* Adjust height as needed */
+  }
+  
+  .curve {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, #FF7F00, #FFAA33); /* Add your desired gradient/curve effect here */
+    border-radius: 0 0 20px 20px;  /* This makes the curve at the bottom */
+  }
+  
+  .content {
+    flex: 1;  /* Ensures content takes the remaining space between header and footer */
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  

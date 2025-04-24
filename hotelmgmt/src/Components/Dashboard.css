@@ -1,17 +1,83 @@
-*{
-    padding: 0;
-    margin: 0;
-    bottom: 10px;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+html,
+body {
+  /* completely disable page scrolling */
+  overflow: hidden;
+}
+
+
+/* Hamburger icon */
+.hamburger {
+  position: fixed;
+  top: 10%;
+  left: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 4;
+}
+
+/* Overlay (background dim layer) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Sidebar container */
 .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; 
-    flex-wrap: wrap; 
-    justify-content: left;
-    margin-top: 20px;
-    width: 100px;
-    height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 160px;              /* push below header if needed */
+  width: 200px;
+  height: 93.5vh;                 /* adjust to fit below header */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #f0f0f0;
+
+  /* start off-screen */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 3;
+}
+.dashboard-container.open {
+  /* slide into view */
+  transform: translateX(0);
 }
 
+/* Sidebar buttons */
+.dashboard-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+.dashboard-container button:hover {
+  background-color: #0056b3;
+}
