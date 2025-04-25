@@ -9,15 +9,13 @@ const Layout = () => {
     <div className="layout-container">
       <Header />
       
-      {/* Curved section between Header and Footer */}
-      <div className="orange-header">
-        <div className="curve"></div>
+      <div className="content-wrapper">
+        {/* Curved Section Inside Content Wrapper */}
+        <div className="curved-body">
+          <Outlet />  {/* This will render the pages based on route */}
+        </div>
       </div>
       
-      <main className="content">
-        <Outlet />
-      </main>
-
       <Footer />
     </div>
   );

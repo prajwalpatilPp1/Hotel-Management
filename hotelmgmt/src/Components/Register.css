@@ -1,0 +1,49 @@
+.admin-register-container {
+    max-width: 400px;
+    margin: auto;
+    padding-top: 50px;
+  }
+  
+  .admin-register-container h2 {
+    text-align: center;
+  }
+  
+  .success-message {
+    color: green;
+    margin-bottom: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .register-button {
+    padding: 10px 20px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .register-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  

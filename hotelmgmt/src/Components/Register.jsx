@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import '../Components/Register.css';
 
-function AdminRegister() {
+function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,7 +12,6 @@ function AdminRegister() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Password strength check
     if (password.length < 6) {
       setErrorMessage('Password must be at least 6 characters long.');
       return;
@@ -36,7 +36,6 @@ function AdminRegister() {
         setEmail('');
         setPassword('');
       } else {
-        // Provide better error feedback
         setErrorMessage(data.message || 'Registration failed. Please try again.');
       }
     } catch (error) {
@@ -48,52 +47,44 @@ function AdminRegister() {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: 'auto', paddingTop: '50px' }}>
+    <div className="admin-register-container">
       <h2>Admin Register</h2>
 
-      {/* Display success or error message */}
-      {successMessage && (
-        <div style={{ color: 'green', marginBottom: '10px' }}>{successMessage}</div>
-      )}
-      {errorMessage && (
-        <div style={{ color: 'red', marginBottom: '10px' }}>{errorMessage}</div>
-      )}
+      {successMessage && <div className="success-message">{successMessage}</div>}
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
 
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '10px' }}>
-          <label>Name:</label><br />
+        <div className="form-group">
+          <label>Name:</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            style={{ width: '100%', padding: '8px' }}
           />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Email:</label><br />
+        <div className="form-group">
+          <label>Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={{ width: '100%', padding: '8px' }}
           />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label>Password:</label><br />
+        <div className="form-group">
+          <label>Password:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            style={{ width: '100%', padding: '8px' }}
           />
         </div>
 
-        <button type="submit" style={{ padding: '10px 20px' }} disabled={loading}>
+        <button type="submit" className="register-button" disabled={loading}>
           {loading ? 'Registering...' : 'Register'}
         </button>
       </form>
@@ -101,4 +92,4 @@ function AdminRegister() {
   );
 }
 
-export default AdminRegister;
+export default Register;

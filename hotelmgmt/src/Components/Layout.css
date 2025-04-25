@@ -1,29 +1,35 @@
 .layout-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .orange-header {
-    background-color: #FF7F00;  /* Orange background */
-    height: 100px;  /* Adjust height as needed */
-  }
-  
-  .curve {
-    width: 100%;
-    height: 50px;
-    background: linear-gradient(to right, #FF7F00, #FFAA33); /* Add your desired gradient/curve effect here */
-    border-radius: 0 0 20px 20px;  /* This makes the curve at the bottom */
-  }
-  
-  .content {
-    flex: 1;  /* Ensures content takes the remaining space between header and footer */
-  }
-  
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  padding: 40px;  /* Padding around content */
+  background-color: white;  /* Background color for content */
+  border-radius: 20px;  /* Optional rounded corners for the content */
+  position: relative;
+  z-index: 1;
+}
+
+.curved-body {
+  position: relative;
+  background-color: #FF7F00;  /* Orange background */
+  border-radius: 0 0 50% 50%;  /* Inverted curve effect at the bottom */
+  width: 100vw;  /* Full width of the viewport */
+  padding: 20px 0;  /* Reduced padding to reduce the height of the curve */
+  margin-top: 10px;  /* Pushes the curve to the bottom */
+  z-index: 0;  /* Ensures the curve stays behind the content */
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
