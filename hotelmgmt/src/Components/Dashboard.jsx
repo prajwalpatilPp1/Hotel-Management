@@ -34,7 +34,7 @@ function Dashboard() {
         <button onClick={() => navigate('/rooms')}>Rooms</button>
         <button onClick={() => navigate('/payments')}>Payments</button>
         <button onClick={() => navigate('/inventory')}>Inventory</button>
-        <button onClick={() => navigate('/Maintenence')}>Maintenence</button>
+        <button onClick={() => navigate('/maintenance')}>Maintenence</button>
         <button onClick={handleLogout}>Logout</button>
       </div>
     </div>

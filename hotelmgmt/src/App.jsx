@@ -8,7 +8,7 @@ import Rooms from './Components/Rooms';
 import Inventory from './Components/Inventory';
 import Payments from './Components/Payments';
 import Layout from './Components/Layout';  // Wrap header and footer inside Layout
-
+import Maintenance from './Components/Maintenance';
 function App() {
   return (
     <Router>
@@ -22,6 +22,7 @@ function App() {
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/payments" element={<Payments />} />
+          <Route path="/maintenance" element={<Maintenance />} />
         </Route>
       </Routes>
     </Router>
