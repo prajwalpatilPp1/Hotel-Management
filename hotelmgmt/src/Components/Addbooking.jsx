@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddBooking.css'; // ✅ Linking external CSS
+import './Addbooking.css'; // ✅ Linking external CSS
 
 function AddBooking() {
   const [name, setName] = useState('');

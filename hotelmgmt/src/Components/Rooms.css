@@ -1,0 +1,72 @@
+.rooms-page {
+    padding: 40px;
+    background-color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  .rooms-page h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #D4AF37; /* Gold color */
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .rooms-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rooms-table th, .rooms-table td {
+    padding: 15px 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .rooms-table thead {
+    background-color: #D4AF37; /* Gold header */
+    color: white;
+  }
+  
+  .rooms-table tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .rooms-table tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .available {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .occupied {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .book-now {
+    background-color: #D4AF37; /* Gold button */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .book-now:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .book-now:hover:not(:disabled) {
+    background-color: #b89420;
+  }
+  
