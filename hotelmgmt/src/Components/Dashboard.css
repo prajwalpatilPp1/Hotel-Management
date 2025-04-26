@@ -1,6 +1,10 @@
+*{
+  padding: 0;
+  margin: 0;
+}
 .hamburger {
   position: fixed;
-  top: 15% ;
+  top: 17% ;
   left: 10px;
   font-size: 2rem;
   cursor: pointer;
@@ -12,7 +16,7 @@
   transition: transform 0.2s ease;
 }
 html{
-  overflow: auto;
+  overflow:auto;
 }
 .hamburger:active {
   transform: scale(0.95);
@@ -63,7 +67,7 @@ html{
 .dashboard-container button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #0056b3;
   color: white;
   border: none;
   text-align: left;
@@ -73,5 +77,34 @@ html{
 }
 
 .dashboard-container button:hover {
+  background-color: #0056b3;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  z-index: 10;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu button {
+  background: none;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-menu button:hover {
   background-color: #0056b3;
 }

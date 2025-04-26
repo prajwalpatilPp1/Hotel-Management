@@ -1,0 +1,55 @@
+*{
+padding: 0;
+margin: 0;
+
+}
+
+.add-booking-container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .add-booking-heading {
+    font-size: 2rem;
+    color:  #0056b3; /* Gold */
+    margin-bottom: 20px;
+  }
+  
+  .add-booking-form {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    gap: 15px;
+  }
+  
+  .add-booking-form input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+  }
+  
+  .add-booking-form input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(184, 134, 11, 0.5);
+  }
+  
+  .add-booking-form button {
+    background-color: #0056b3;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .add-booking-form button:hover {
+    background-color: #a97400;
+    transform: translateY(-2px);
+  }
+  

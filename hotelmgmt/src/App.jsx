@@ -9,6 +9,7 @@ import Inventory from './Components/Inventory';
 import Payments from './Components/Payments';
 import Layout from './Components/Layout';  // Wrap header and footer inside Layout
 import Maintenance from './Components/Maintenance';
+import AddBooking from './Components/Addbooking';
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/payments" element={<Payments />} />
           <Route path="/maintenance" element={<Maintenance />} />
+          <Route path="/addbooking" element={<AddBooking />} />
         </Route>
       </Routes>
     </Router>
