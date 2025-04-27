@@ -1,55 +1,129 @@
-*{
-padding: 0;
-margin: 0;
+/* src/pages/Booking.css */
 
+/* Container for the booking form */
+.booking-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
-.add-booking-container {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Title of the booking form */
+.booking-title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Form styling */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f8f8;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  background-color: #e7f1ff;
+  outline: none;
+}
+
+/* Styling for the submit button */
+.submit-btn {
+  padding: 15px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.submit-btn:active {
+  background-color: #004085;
+  transform: scale(1);
+}
+
+/* Hover effects for the form fields */
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="date"]:hover,
+textarea:hover {
+  border-color: #0056b3;
+  background-color: #f0f8ff;
+}
+
+/* Textarea specific styles */
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Form container hover effect */
+.booking-container:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.booking-container:focus-within {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .booking-container {
+    padding: 20px;
+    margin: 20px;
   }
-  
-  .add-booking-heading {
-    font-size: 2rem;
-    color:  #0056b3; /* Gold */
-    margin-bottom: 20px;
+
+  .booking-title {
+    font-size: 24px;
   }
-  
-  .add-booking-form {
-    display: flex;
-    flex-direction: column;
-    width: 320px;
-    gap: 15px;
+
+  .form-group {
+    gap: 12px;
   }
-  
-  .add-booking-form input {
-    padding: 12px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
+
+  .submit-btn {
+    font-size: 16px;
+    padding: 12px 18px;
   }
-  
-  .add-booking-form input:focus {
-    border-color: #0056b3;
-    box-shadow: 0 0 5px rgba(184, 134, 11, 0.5);
-  }
-  
-  .add-booking-form button {
-    background-color: #0056b3;
-    color: white;
-    font-size: 1.1rem;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .add-booking-form button:hover {
-    background-color: #a97400;
-    transform: translateY(-2px);
-  }
-  
+}

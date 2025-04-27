@@ -1,67 +1,96 @@
-.payments-page {
-    padding: 40px;
-    /* No background-color here! Keep your orange layout */
-    min-height: 100vh;
+/* Container for payments */
+.payments-container {
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Title styling */
+.payments-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* New payment form styling */
+.new-payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Input fields for adding payments */
+.new-payment-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+.new-payment-form input:focus {
+  border-color: #007bff;
+  background-color: #e7f1ff;
+  outline: none;
+}
+
+/* Button to add payment */
+.add-payment-btn {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-payment-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Payment table styling */
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payment-table th, .payment-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.payment-table th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+}
+
+.payment-table td {
+  background-color: #fff;
+}
+
+.payment-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Responsive layout adjustments for smaller screens */
+@media (max-width: 768px) {
+  .payments-container {
+    padding: 20px;
   }
-  
-  .payments-page h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: white; /* Gold color */
+
+  .payments-title {
+    font-size: 24px;
   }
-  
-  .payments-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff; /* White background ONLY for table */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Nice shadow */
+
+  .payment-table th, .payment-table td {
+    padding: 8px;
   }
-  
-  .payments-table th, .payments-table td {
-    border: 1px solid #ddd;
-    padding: 15px 20px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  .payments-table th {
-    background-color: #0056b3; /* Gold header */
-    color: white;
-  }
-  
-  .payments-table tbody tr {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .payments-table tbody tr:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .paid {
-    background-color: green;
-    color: white;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .unpaid {
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .advance {
-    background-color: orange;
-    color: white;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
+}

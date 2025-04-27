@@ -1,108 +1,110 @@
-import React from 'react';
-import './Booking.css'; // make sure to create this file
-import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import React, { useState, useEffect } from "react";
+import "./Booking.css";
 
 const Booking = () => {
-  const totalBookings = 120;
-  const roomTypes = {
-    single: 40,
-    double: 50,
-    suite: 30,
-  };
+  const [bookings, setBookings] = useState([]);
 
-  const upcomingBookings = 15;
-  const statusSummary = {
-    booked: 80,
-    cancelled: 20,
-    checkedIn: 20,
-  };
+  useEffect(() => {
+    // In a real app, you would fetch this data from an API
+    const dummyBookings = [
+      {
+        bookingId: "B001",
+        guestName: "Aarav Patel",
+        roomNumber: "101",
+        checkInDate: "2025-05-01",
+        checkOutDate: "2025-05-05",
+        numberOfGuests: 2,
+        specialRequests: "Late check-in",
+        bookingStatus: "Confirmed",
+        paymentStatus: "Paid",
+      },
+      {
+        bookingId: "B002",
+        guestName: "Priya Sharma",
+        roomNumber: "205",
+        checkInDate: "2025-05-03",
+        checkOutDate: "2025-05-08",
+        numberOfGuests: 1,
+        specialRequests: "Near elevator",
+        bookingStatus: "Confirmed",
+        paymentStatus: "Pending",
+      },
+      {
+        bookingId: "B003",
+        guestName: "Rohan Verma",
+        roomNumber: "307",
+        checkInDate: "2025-05-02",
+        checkOutDate: "2025-05-06",
+        numberOfGuests: 3,
+        specialRequests: "Extra bed",
+        bookingStatus: "Checked-in",
+        paymentStatus: "Paid",
+      },
+      {
+        bookingId: "B004",
+        guestName: "Sneha Deshmukh",
+        roomNumber: "410",
+        checkInDate: "2025-05-04",
+        checkOutDate: "2025-05-09",
+        numberOfGuests: 2,
+        specialRequests: "",
+        bookingStatus: "Cancelled",
+        paymentStatus: "Refunded",
+      },
+      {
+        bookingId: "B005",
+        guestName: "Vikram Singh",
+        roomNumber: "512",
+        checkInDate: "2025-05-05",
+        checkOutDate: "2025-05-10",
+        numberOfGuests: 1,
+        specialRequests: "High floor",
+        bookingStatus: "Confirmed",
+        paymentStatus: "Paid",
+      },
+    ];
+    setBookings(dummyBookings);
+  }, []);
 
-
-  const bookingData = [
-    { name: 'Single', value: 40 },
-    { name: 'Double', value: 50 },
-    { name: 'Suite', value: 30 }
-  ];
-  
-  const statusData = [
-    { name: 'Booked', value: 80 },
-    { name: 'Cancelled', value: 20 },
-    { name: 'Checked-in', value: 20 }
-  ];
-  
   return (
-    <div className="booking-summary">
-  {/* Section 1: Quick Stats */}
-  <div className="stats-grid">
-    <div className="booking-box">
-      <h3>Total Bookings</h3>
-      <p>{totalBookings}</p>
-    </div>
+    <div className="booking-list-container">
+      <h2 className="booking-title">All Bookings</h2>
 
-    <div className="booking-box">
-      <h3>Room Types</h3>
-      <p>Single: {roomTypes.single}</p>
-      <p>Double: {roomTypes.double}</p>
-      <p>Suite: {roomTypes.suite}</p>
+      {bookings.length === 0 ? (
+        <p>No bookings found.</p>
+      ) : (
+        <table className="booking-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Guest Name</th>
+              <th>Room Number</th>
+              <th>Check-In</th>
+              <th>Check-Out</th>
+              <th>Guests</th>
+              <th>Status</th>
+              <th>Payment</th>
+              <th>Requests</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bookings.map((booking) => (
+              <tr key={booking.bookingId}>
+                <td>{booking.bookingId}</td>
+                <td>{booking.guestName}</td>
+                <td>{booking.roomNumber}</td>
+                <td>{booking.checkInDate}</td>
+                <td>{booking.checkOutDate}</td>
+                <td>{booking.numberOfGuests}</td>
+                <td>{booking.bookingStatus}</td>
+                <td>{booking.paymentStatus}</td>
+                <td>{booking.specialRequests || "-"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
-
-    <div className="booking-box">
-      <h3>Upcoming (7 Days)</h3>
-      <p>{upcomingBookings}</p>
-    </div>
-
-    <div className="booking-box">
-      <h3>Status Summary</h3>
-      <p>Booked: {statusSummary.booked}</p>
-      <p>Cancelled: {statusSummary.cancelled}</p>
-      <p>Checked-in: {statusSummary.checkedIn}</p>
-    </div>
-  </div>
-
-  {/* Section 2: Charts */}
-  <div className="chart-section">
-    <div className="chart-box">
-      <h3>Room Types</h3>
-      <PieChart width={300} height={250}>
-        <Pie
-          data={bookingData}
-          dataKey="value"
-          cx="50%"
-          cy="50%"
-          outerRadius={80}
-          label
-        >
-          {bookingData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={['#8884d8', '#82ca9d', '#ffc658'][index % 3]} />
-          ))}
-        </Pie>
-        <Tooltip />
-        <Legend />
-      </PieChart>
-    </div>
-
-    <div className="chart-box">
-      <h3>Status Summary</h3>
-      <PieChart width={300} height={250}>
-        <Pie
-          data={statusData}
-          dataKey="value"
-          cx="50%"
-          cy="50%"
-          outerRadius={80}
-          label
-        >
-          {statusData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={['#00C49F', '#FF8042', '#0088FE'][index % 3]} />
-          ))}
-        </Pie>
-        <Tooltip />
-        <Legend />
-      </PieChart>
-    </div>
-  </div>
-</div>
-
   );
 };
 

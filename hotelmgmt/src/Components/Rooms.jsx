@@ -1,99 +1,157 @@
-import React, { useState } from 'react';
-import './Rooms.css';
+// src/pages/Rooms.jsx
+import React, { useState, useEffect } from "react";
+import "./Rooms.css";
 
-function Rooms() {
-  const [rooms, setRooms] = useState([
-    {
-      id: 1,
-      name: 'Deluxe Room',
-      price: '₹3000/night',
-      facilities: '1 King Bed, Free Wi-Fi, Breakfast Included',
-      status: 'Available',
-      customer: null,
-    },
-    {
-      id: 2,
-      name: 'Suite',
-      price: '₹5000/night',
-      facilities: '2 King Beds, Living Area, Ocean View, Free Wi-Fi, Breakfast Included',
-      status: 'Occupied',
-      customer: {
-        name: 'Rahul Sharma',
-        phone: '9876543210',
-        checkinDate: '2025-04-25',
-      },
-    },
-    {
-      id: 3,
-      name: 'Standard Room',
-      price: '₹2000/night',
-      facilities: '1 Queen Bed, Free Wi-Fi',
-      status: 'Occupied',
-      customer: {
-        name: 'Priya Mehta',
-        phone: '9123456780',
-        checkinDate: '2025-04-24',
-      },
-    },
-  ]);
+const Rooms = () => {
+  const [rooms, setRooms] = useState([]);
+  const [newRoom, setNewRoom] = useState({
+    roomNumber: "",
+    roomType: "",
+    price: "",
+    availability: "Available",
+    amenities: "",
+  });
 
-  const handleCheckout = (roomId) => {
-    const updatedRooms = rooms.map((room) =>
-      room.id === roomId
-        ? { ...room, status: 'Available', customer: null }
-        : room
-    );
-    setRooms(updatedRooms);
-    alert(`Room ${roomId} has been checked out successfully!`);
+  useEffect(() => {
+    // In real app, this would be fetched from an API
+    const dummyRooms = [
+      {
+        roomNumber: "101",
+        roomType: "Single",
+        price: 3000,
+        availability: "Available",
+        amenities: "AC, Free WiFi, TV, Hot Water",
+      },
+      {
+        roomNumber: "102",
+        roomType: "Double",
+        price: 5000,
+        availability: "Occupied",
+        amenities: "AC, Free WiFi, TV, Hot Water, Mini Fridge",
+      },
+      {
+        roomNumber: "103",
+        roomType: "Suite",
+        price: 8000,
+        availability: "Available",
+        amenities: "AC, Free WiFi, TV, Hot Water, Mini Fridge, Bathtub",
+      },
+      {
+        roomNumber: "104",
+        roomType: "Single",
+        price: 3000,
+        availability: "Available",
+        amenities: "AC, Free WiFi, TV, Hot Water",
+      },
+    ];
+    setRooms(dummyRooms);
+  }, []);
+
+  const handleAddRoom = () => {
+    if (!newRoom.roomNumber || !newRoom.roomType || !newRoom.price || !newRoom.amenities) {
+      alert("Please fill in all fields.");
+      return;
+    }
+    setRooms([...rooms, newRoom]);
+    setNewRoom({
+      roomNumber: "",
+      roomType: "",
+      price: "",
+      availability: "Available",
+      amenities: "",
+    });
+  };
+
+  const handleRemoveRoom = (roomNumber) => {
+    setRooms(rooms.filter((room) => room.roomNumber !== roomNumber));
+  };
+
+  const toggleAvailability = (roomNumber) => {
+    setRooms(rooms.map((room) => 
+      room.roomNumber === roomNumber 
+      ? { ...room, availability: room.availability === "Available" ? "Occupied" : "Available" }
+      : room
+    ));
   };
 
   return (
-    <div className="rooms-page">
-      <h1>Rooms Overview</h1>
-      <table className="rooms-table">
-        <thead>
-          <tr>
-            <th>Room Name</th>
-            <th>Price</th>
-            <th>Facilities</th>
-            <th>Status</th>
-            <th>Customer Name</th>
-            <th>Phone Number</th>
-            <th>Check-in Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rooms.map(room => (
-            <tr key={room.id}>
-              <td>{room.name}</td>
-              <td>{room.price}</td>
-              <td>{room.facilities}</td>
-              <td>
-                <span className={room.status === 'Available' ? 'available' : 'occupied'}>
-                  {room.status}
-                </span>
-              </td>
-              <td>{room.customer ? room.customer.name : '-'}</td>
-              <td>{room.customer ? room.customer.phone : '-'}</td>
-              <td>{room.customer ? room.customer.checkinDate : '-'}</td>
-              <td>
-                {room.status === 'Available' ? (
-                  <button className="book-now" onClick={() => alert('Redirect to Booking')}>
-                    Book Now
-                  </button>
-                ) : (
-                  <button className="checkout-btn" onClick={() => handleCheckout(room.id)}>
-                    Checkout
-                  </button>
-                )}
-              </td>
+    <div className="rooms-container">
+      <h2 className="rooms-title">Room Management</h2>
+
+      {/* Add Room Form */}
+      <div className="add-room-form">
+        <h3>Add New Room</h3>
+        <input
+          type="text"
+          placeholder="Room Number"
+          value={newRoom.roomNumber}
+          onChange={(e) => setNewRoom({ ...newRoom, roomNumber: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Room Type"
+          value={newRoom.roomType}
+          onChange={(e) => setNewRoom({ ...newRoom, roomType: e.target.value })}
+        />
+        <input
+          type="number"
+          placeholder="Price (INR)"
+          value={newRoom.price}
+          onChange={(e) => setNewRoom({ ...newRoom, price: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Amenities"
+          value={newRoom.amenities}
+          onChange={(e) => setNewRoom({ ...newRoom, amenities: e.target.value })}
+        />
+        <button onClick={handleAddRoom} className="add-room-btn">Add Room</button>
+      </div>
+
+      {rooms.length === 0 ? (
+        <p>No rooms available.</p>
+      ) : (
+        <table className="rooms-table">
+          <thead>
+            <tr>
+              <th>Room Number</th>
+              <th>Room Type</th>
+              <th>Price (INR)</th>
+              <th>Availability</th>
+              <th>Amenities</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rooms.map((room) => (
+              <tr key={room.roomNumber}>
+                <td>{room.roomNumber}</td>
+                <td>{room.roomType}</td>
+                <td>{room.price} ₹</td>
+                <td>
+                  <button
+                    className={`availability-btn ${room.availability === "Available" ? "available" : "occupied"}`}
+                    onClick={() => toggleAvailability(room.roomNumber)}
+                  >
+                    {room.availability}
+                  </button>
+                </td>
+                <td>{room.amenities}</td>
+                <td>
+                  <button
+                    onClick={() => handleRemoveRoom(room.roomNumber)}
+                    className="remove-room-btn"
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
-}
+};
 
 export default Rooms;

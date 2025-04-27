@@ -1,72 +1,139 @@
-.rooms-page {
-    padding: 40px;
-    background-color: #ffffff;
-    min-height: 100vh;
+/* Container for the rooms table */
+.rooms-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Title of the room management section */
+.rooms-title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Add Room form styling */
+.add-room-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.add-room-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+.add-room-form button {
+  padding: 12px 18px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-room-form button:hover {
+  background-color: #0056b3;
+}
+
+.add-room-form button:active {
+  background-color: #004085;
+}
+
+/* Table styling */
+.rooms-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.rooms-table th,
+.rooms-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.rooms-table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.rooms-table td {
+  background-color: #f8f8f8;
+}
+
+.rooms-table tr:hover {
+  background-color: #f0f8ff;
+}
+
+.rooms-table .remove-room-btn {
+  padding: 8px 12px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rooms-table .remove-room-btn:hover {
+  background-color: #d32f2f;
+}
+
+.rooms-table .availability-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.rooms-table .availability-btn.available {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.rooms-table .availability-btn.occupied {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .rooms-container {
+    padding: 15px;
+    margin: 15px;
   }
-  
-  .rooms-page h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: #D4AF37; /* Gold color */
-    text-align: center;
-    margin-bottom: 30px;
+
+  .rooms-title {
+    font-size: 24px;
   }
-  
-  .rooms-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+
+  .rooms-table th,
+  .rooms-table td {
+    padding: 8px;
   }
-  
-  .rooms-table th, .rooms-table td {
-    padding: 15px 20px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
+
+  .add-room-form input {
+    font-size: 14px;
   }
-  
-  .rooms-table thead {
-    background-color: #D4AF37; /* Gold header */
-    color: white;
+
+  .add-room-form button {
+    font-size: 14px;
+    padding: 10px 15px;
   }
-  
-  .rooms-table tbody tr {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .rooms-table tbody tr:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .available {
-    color: green;
-    font-weight: bold;
-  }
-  
-  .occupied {
-    color: red;
-    font-weight: bold;
-  }
-  
-  .book-now {
-    background-color: #D4AF37; /* Gold button */
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .book-now:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .book-now:hover:not(:disabled) {
-    background-color: #b89420;
-  }
-  
+}

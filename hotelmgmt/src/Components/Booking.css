@@ -1,43 +1,171 @@
-.booking-summary {
-    
-    gap: 20px;
-    padding: 30px;
-    
-    overflow: auto;
-  }
-  
-  .booking-box {
-    background-color: #ffffff;
+/* Container for the booking form */
+.booking-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Title of the booking form */
+.booking-title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: 600; /* Adding font weight to make the title bolder */
+}
+
+/* Form styling */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form group container */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+  font-weight: 600;
+}
+
+/* Input fields and textarea styling */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+/* Input focus and hover effect */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  background-color: #e7f1ff;
+  outline: none;
+}
+
+/* Hover effects for the input fields */
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="date"]:hover,
+textarea:hover {
+  border-color: #0056b3;
+  background-color: #f0f8ff;
+}
+
+/* Styling for the submit button */
+.submit-btn {
+  padding: 15px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.submit-btn:active {
+  background-color: #004085;
+  transform: scale(1);
+}
+
+/* Textarea specific styles */
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Form container hover effect */
+.booking-container:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+/* On focus within the container */
+.booking-container:focus-within {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive layout adjustments for smaller screens */
+@media (max-width: 768px) {
+  .booking-container {
     padding: 20px;
-    width: 220px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    justify-content: center;
-  }
-  
-  .booking-box h3 {
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .booking-box p {
-    margin: 4px 0;
-    color: #555;
-  }
-  
-  .stats-grid{
-
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0px 50px;
+    margin: 20px;
   }
 
-  .chart-section{
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    margin-top: 80px;
-
+  .booking-title {
+    font-size: 24px; /* Slightly smaller title for smaller screens */
   }
+
+  .form-group {
+    gap: 12px;
+  }
+
+  .submit-btn {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+}
+
+/* Table for displaying all bookings */
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.booking-table th {
+  background-color: #f0f8ff;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.booking-table td {
+  font-size: 14px;
+  color: #555;
+}
+
+.booking-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.booking-table tr:hover {
+  background-color: #e7f1ff;
+  cursor: pointer;
+}
+
+.booking-table td:last-child {
+  text-align: center;
+}

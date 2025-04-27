@@ -5,7 +5,6 @@ import '../Components/Dashboard.css';
 function Dashboard() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [bookingDropdownOpen, setBookingDropdownOpen] = useState(false);
 
   const handleLogout = () => {
     navigate('/login');
@@ -19,10 +18,6 @@ function Dashboard() {
     });
   };
 
-  const toggleBookingDropdown = () => {
-    setBookingDropdownOpen(prev => !prev);
-  };
-
   return (
     <div className="dashboard-main">
       <h1 className='heading'>Welcome, Admin!</h1>
@@ -34,15 +29,9 @@ function Dashboard() {
       <div className={`overlay ${menuOpen ? 'show' : ''}`} onClick={toggleMenu}></div>
 
       <div className={`dashboard-container ${menuOpen ? 'open' : ''}`}>
-        <div className="dropdown">
-          <button onClick={toggleBookingDropdown}>Booking ▾</button>
-          {bookingDropdownOpen && (
-            <div className="dropdown-menu">
-              <button onClick={() => navigate('/booking')}>View Bookings</button>
-              <button onClick={() => navigate('/addbooking')}>Add Booking</button>
-            </div>
-          )}
-        </div>
+        {/* Removed the dropdown and added buttons directly */}
+        <button onClick={() => navigate('/booking')}>View Bookings</button>
+        <button onClick={() => navigate('/addbooking')}>Add Booking</button>
 
         <button onClick={() => navigate('/rooms')}>Rooms</button>
         <button onClick={() => navigate('/payments')}>Payments</button>
